@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { categories, categoryBySlug, siteName } from '../data/categories.js';
+import { pathTo } from '../lib/site.js';
+
+const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
+const articlesByCategory = Object.fromEntries(
+  categories.map((category) => [category.slug, articles.filter((article) => article.data.category === category.slug)]),
+);
+---
+<SiteLayout title={siteName}>
+  <section class="hero" aria-labelledby="home-title">
+    <p class="eyebrow">劇本閱讀工具箱・方法索引</p>
+    <h1 id="home-title">拆解故事的方法，<br /><span class="accent-word">從角色與結構開始。</span></h1>
+    <p class="hero-copy">
+      整理常見的劇本分析方法，讓閱讀者能找到合適的觀察角度、提出更清楚的問題。每種模型都是理解作品的入口，不是唯一答案。
+    </p>
+    <div class="hero-meta" aria-label="網站內容概況">
+      <span class="meta-pill"><strong>{categories.length}</strong> 個分析分類</span>
+      <span class="meta-pill"><strong>{articles.length}</strong> 篇方法文章</span>
+      <span class="meta-pill">持續整理中</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="categories-title">
+    <div class="section-heading">
+      <h2 id="categories-title">從分類開始閱讀</h2>
+      <p>兩條觀察故事的路徑</p>
+    </div>
+    <div class="category-grid">
+      {categories.map((category, index) => (
+        <a class="category-card" href={pathTo(`categories/${category.slug}/`)}>
+          <div class="category-card-top">
+            <span class="category-number">0{index + 1} / FIELD</span>
+            <span class="category-count">{articlesByCategory[category.slug].length} 篇文章</span>
+          </div>
+          <h3>{category.title}</h3>
+          <p>{category.description}</p>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="index-section" aria-labelledby="index-title">
+    <div class="section-heading">
+      <h2 id="index-title">全部方法</h2>
+      <p>六篇文章・依分類整理</p>
+    </div>
+    {categories.map((category) => (
+      <div class="index-group">
+        <div class="index-group-heading">
+          <a href={pathTo(`categories/${category.slug}/`)}>{category.title} <span aria-hidden="true">→</span></a>
+          <span>{articlesByCategory[category.slug].length} 篇</span>
+        </div>
+        <div class="article-list">
+          {articlesByCategory[category.slug].map((article) => (
+            <div class="article-row">
+              <div class="article-row-main">
+                <a class="article-row-title" href={pathTo(`articles/${article.data.slug}/`)}>{article.data.title}</a>
+                <p>{article.data.summary}</p>
+              </div>
+              <span class="row-category">{categoryBySlug[category.slug].title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+</SiteLayout>

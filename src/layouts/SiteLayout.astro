@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import { categories, siteName } from '../data/categories.js';
+import { pathTo } from '../lib/site.js';
+
+const { title = siteName, currentCategory = null } = Astro.props;
+const pageTitle = title === siteName ? siteName : `${title}｜${siteName}`;
+---
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="description" content="以繁體中文整理劇本分析方法的閱讀型 Wiki。" />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href={pathTo('favicon.svg')} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要內容</a>
+    <div class="site-frame">
+      <aside class="side-rail" aria-label="網站導覽">
+        <a class="brand" href={pathTo('')} aria-label={`${siteName}首頁`}>
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none">
+              <path d="M7 8.5c4.4-1.6 8.1-.9 11 1.7v18c-2.9-2.6-6.6-3.3-11-1.7v-18Z" />
+              <path d="M29 8.5c-4.4-1.6-8.1-.9-11 1.7v18c2.9-2.6 6.6-3.3 11-1.7v-18Z" />
+              <path d="M10.5 13c2-.5 3.8-.3 5.2.5M10.5 17c2-.5 3.8-.3 5.2.5M25.5 13c-2-.5-3.8-.3-5.2.5M25.5 17c-2-.5-3.8-.3-5.2.5" />
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>劇本分析</strong>
+            <small>METHODS WIKI</small>
+          </span>
+        </a>
+
+        <div class="rail-divider"></div>
+        <p class="nav-caption">閱讀索引</p>
+        <nav class="primary-nav" aria-label="主要導覽">
+          <a class="nav-link nav-home" href={pathTo('')}>
+            <span class="nav-glyph" aria-hidden="true">⌂</span>
+            <span>首頁</span>
+          </a>
+          <p class="nav-caption nav-caption-spaced">分析分類</p>
+          {categories.map((category, index) => (
+            <a
+              class:list={['nav-link', 'nav-category', { 'is-current': currentCategory === category.slug }]}
+              href={pathTo(`categories/${category.slug}/`)}
+              aria-current={currentCategory === category.slug ? 'page' : undefined}
+            >
+              <span class="nav-index" aria-hidden="true">0{index + 1}</span>
+              <span>{category.title}</span>
+              {currentCategory === category.slug && <span class="current-dot" aria-hidden="true"></span>}
+            </a>
+          ))}
+        </nav>
+
+        <div class="rail-note">
+          <span class="rail-note-mark" aria-hidden="true">※</span>
+          <p>分析模型是觀察故事的入口，不是唯一答案。</p>
+        </div>
+        <div class="rail-footer">以方法閱讀故事<br /><span>繁體中文・持續整理</span></div>
+      </aside>
+
+      <div class="page-column">
+        <header class="mobile-header">
+          <a class="brand brand-compact" href={pathTo('')} aria-label={`${siteName}首頁`}>
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 36 36" fill="none">
+                <path d="M7 8.5c4.4-1.6 8.1-.9 11 1.7v18c-2.9-2.6-6.6-3.3-11-1.7v-18Z" />
+                <path d="M29 8.5c-4.4-1.6-8.1-.9-11 1.7v18c2.9-2.6 6.6-3.3 11-1.7v-18Z" />
+                <path d="M10.5 13c2-.5 3.8-.3 5.2.5M10.5 17c2-.5 3.8-.3 5.2.5M25.5 13c-2-.5-3.8-.3-5.2.5M25.5 17c-2-.5-3.8-.3-5.2.5" />
+              </svg>
+            </span>
+            <span class="brand-copy"><strong>劇本分析</strong><small>METHODS WIKI</small></span>
+          </a>
+          <span class="mobile-current">{currentCategory ? categories.find((item) => item.slug === currentCategory)?.title : '知識索引'}</span>
+        </header>
+        <nav class="mobile-nav" aria-label="分析分類">
+          {categories.map((category, index) => (
+            <a
+              class:list={['mobile-nav-link', { 'is-current': currentCategory === category.slug }]}
+              href={pathTo(`categories/${category.slug}/`)}
+              aria-current={currentCategory === category.slug ? 'page' : undefined}
+            >
+              <span>0{index + 1}</span>{category.title}
+            </a>
+          ))}
+        </nav>
+        <main id="main-content" class="main-content">
+          <slot />
+        </main>
+        <footer class="site-footer">
+          <a href={pathTo('')}>{siteName}</a>
+          <span>方法提供提問方向，詮釋仍回到作品本身。</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

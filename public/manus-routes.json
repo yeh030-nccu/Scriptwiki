@@ -1,0 +1,13 @@
+{
+  "routes": [
+    { "path": "/", "title": "劇本分析方法 Wiki" },
+    { "path": "/categories/character-analysis/", "title": "角色分析" },
+    { "path": "/categories/story-structure/", "title": "故事結構" },
+    { "path": "/articles/character-arc/", "title": "角色分析法一：角色弧線" },
+    { "path": "/articles/propp-functions/", "title": "角色分析法二：普羅普的角色功能分析" },
+    { "path": "/articles/greimas-actantial-model/", "title": "角色分析法三：格雷馬斯行動元模型" },
+    { "path": "/articles/freytag-pyramid/", "title": "故事結構分析法一：弗萊塔格金字塔" },
+    { "path": "/articles/heros-journey/", "title": "故事結構分析法二：英雄旅程" },
+    { "path": "/articles/save-the-cat-beats/", "title": "故事結構分析法三：Save the Cat 節拍表" }
+  ]
+}

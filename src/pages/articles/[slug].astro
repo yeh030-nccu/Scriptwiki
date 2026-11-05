@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { categoryBySlug, siteName } from '../../data/categories.js';
+import { pathTo } from '../../lib/site.js';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.data.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const category = categoryBySlug[article.data.category];
+const allArticles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
+const related = allArticles.filter((item) => item.data.category === article.data.category && item.id !== article.id);
+---
+<SiteLayout title={article.data.title} currentCategory={category.slug}>
+  <article class="article-page">
+    <nav class="breadcrumbs" aria-label="麵包屑導覽">
+      <a href={pathTo('')}>首頁</a><span class="breadcrumb-separator" aria-hidden="true">/</span>
+      <a href={pathTo(`categories/${category.slug}/`)}>{category.title}</a><span class="breadcrumb-separator" aria-hidden="true">/</span>
+      <span aria-current="page">{article.data.title}</span>
+    </nav>
+
+    <div class="article-context">
+      <a class="category-chip" href={pathTo(`categories/${category.slug}/`)}>分類：{category.title}</a>
+      <span class="article-context-note">劇本分析方法・閱讀筆記</span>
+    </div>
+
+    <div class="article-body"><Content /></div>
+
+    <div class="article-actions">
+      <a class="back-category" href={pathTo(`categories/${category.slug}/`)}>← 返回「{category.title}」分類</a>
+      <a class="back-home" href={pathTo('')}>回到首頁</a>
+    </div>
+
+    {related.length > 0 && (
+      <aside class="related-block" aria-labelledby="related-title">
+        <h2 id="related-title">同分類的其他方法</h2>
+        <div class="related-links">
+          {related.map((item) => (
+            <a class="related-link" href={pathTo(`articles/${item.data.slug}/`)}>{item.data.title}</a>
+          ))}
+        </div>
+      </aside>
+    )}
+  </article>
+</SiteLayout>
