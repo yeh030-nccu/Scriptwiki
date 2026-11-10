@@ -47,6 +47,8 @@ Algirdas Julien Greimas 的行動元模型（actantial model）把一項故事�
 
 模型需要先界定分析的是哪一項行動。對同一故事，不同角色可能各自有不同客體，因此不存在唯一正確的全書行動元圖；模型也會隨觀點與敘事時間改變。[1] 它不直接衡量人物的心理成長，若要分析內在變化，應與角色弧線方法搭配。
 
-## References
+## 參考資料
+
+- [The Actantial Model by Louis Hébert](https://www.signosemio.com/pages/greimas/actantial-model.php)
 
 [1]: https://www.signosemio.com/pages/greimas/actantial-model.php "The Actantial Model by Louis Hébert"

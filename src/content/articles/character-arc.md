@@ -42,6 +42,8 @@ summary: "追蹤故事事件如何改變角色的信念、選擇與行動。"
 
 要避免把「變化越大越好」當成標準。持守核心信念的角色也可以是故事的中心；角色改變也可能只是突兀轉向。分析應以劇情證據說明變化是否由事件促成，而不是只按結局猜測角色的心理。
 
-## References
+## 參考資料
+
+- [Character arc and character development](https://www.ebsco.com/research-starters/psychology/character-arc-character-development)
 
 [1]: https://www.ebsco.com/research-starters/psychology/character-arc-character-development "Character arc and character development"

@@ -52,7 +52,10 @@ Save the Cat 節拍表特別適合分析電影劇本、商業類型片、節奏�
 
 它是一套有明確作者脈絡的編劇框架，不是故事品質的通用判定標準。官方資料也說明，15 個節拍只是主要節拍，節拍可包含更細的小節點；常見的「beat sheet」一詞也不一定專指 Save the Cat 方法。[2] 對多線敘事、非線性作品、氣氛導向或刻意反類型的作品，應挑選有用的問題，而非硬把情節塞入每個格子。
 
-## References
+## 參考資料
+
+- [Save the Cat! Beat Sheets](https://savethecat.com/beat-sheets)
+- [A Writer’s Guide to Beats and Beat Sheets](https://savethecat.com/about-the-beats/a-writers-guide-to-beats-and-beat-sheets)
 
 [1]: https://savethecat.com/beat-sheets "Save the Cat! Beat Sheets"
 [2]: https://savethecat.com/about-the-beats/a-writers-guide-to-beats-and-beat-sheets "A Writer’s Guide to Beats and Beat Sheets"

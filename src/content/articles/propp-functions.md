@@ -45,6 +45,8 @@ summary: "從角色在情節中的行動功能，觀察故事如何啟動、延�
 
 Propp 的理論原本針對特定類型的民間魔法故事建立，不能假設所有小說、電影或文化傳統都具有同一套功能序列。角色功能也不等於完整人物塑造：只標出「助手」或「反派」，無法說明角色的個人動機、情感變化與文化脈絡。要回答角色如何成長，應搭配角色弧線分析。
 
-## References
+## 參考資料
+
+- [Vladimir Propp, Morphology of the Folktale](https://web.mit.edu/allanmc/www/propp.pdf)
 
 [1]: https://web.mit.edu/allanmc/www/propp.pdf "Vladimir Propp, Morphology of the Folktale"

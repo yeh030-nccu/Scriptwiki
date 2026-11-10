@@ -41,6 +41,8 @@ summary: "沿著張力累積、高潮與後果，檢視情節曲線的運作。"
 
 金字塔是一種分析模型，不是所有作品都必須遵守的規則。來源也提醒，這套曲線對西方傳統故事較適用，世界各地的敘事結構有多種變化；非線性、群像或刻意弱化高潮的作品，未必能完整套入五段曲線。[1] 分析時應描述作品實際如何運作，而不是把不符合模型的地方直接判成缺陷。
 
-## References
+## 參考資料
+
+- [The 5 Elements of Dramatic Structure: Understanding Freytag’s Pyramid](https://writers.com/freytags-pyramid)
 
 [1]: https://writers.com/freytags-pyramid "The 5 Elements of Dramatic Structure: Understanding Freytag’s Pyramid" 

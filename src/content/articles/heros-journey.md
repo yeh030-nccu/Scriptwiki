@@ -35,7 +35,10 @@ summary: "比較主角離開熟悉秩序、經歷試煉與返回前後的變化�
 
 需要留意的是，「單一神話」是一種詮釋模型，不代表所有文化或所有故事都遵循同一套普遍模板。若只尋找符合階段的情節，容易忽略文化差異、女性或群體主角、非英雄式結局，以及作品對冒險敘事的批判。應先尊重作品自身脈絡，再用這個框架提出比較問題。
 
-## References
+## 參考資料
+
+- [Joseph Campbell and the Hero’s Journey](https://www.jcf.org/learn/joseph-campbell-heros-journey)
+- [Monomyth: Hero’s Journey Project](https://orias.berkeley.edu/resources-teachers/monomyth-heros-journey-project)
 
 [1]: https://www.jcf.org/learn/joseph-campbell-heros-journey "Joseph Campbell and the Hero’s Journey"
 [2]: https://orias.berkeley.edu/resources-teachers/monomyth-heros-journey-project "Monomyth: Hero’s Journey Project"
